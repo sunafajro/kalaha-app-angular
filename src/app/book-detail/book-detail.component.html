@@ -21,6 +21,11 @@
     </div>
     <div class="col-sm-12 col-md-10 col-lg-10 col-xl-10">
       <div *ngIf="chapter">
+        <div *ngIf="chapter.audios && chapter.audios.length">
+          <app-audio-player
+            [filePath]="prepareUrl(chapter.audios[0])"
+          ></app-audio-player>
+        </div>
         <p><b>Вуламалли материалсем:</b></p>
         <div class="row">
           <div
