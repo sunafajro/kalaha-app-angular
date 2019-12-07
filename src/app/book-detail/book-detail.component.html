@@ -9,15 +9,15 @@
   </nav>
   <div class="row">
     <div class="col-sm-12 col-md-2 col-lg-2 col-xl-2">
-      <button
+      <a
         class="btn {{
-          selectedChapter === chapter.id ? 'btn-primary' : 'btn-secondary'
+          chapterId === chapter.id ? 'btn-primary' : 'btn-secondary'
         }} btn-sm m-1"
         *ngFor="let chapter of book.chapters"
-        (click)="changeChapter(chapter.id)"
+        routerLink="/books/{{ bookId }}/{{ chapter.id }}"
       >
         {{ chapter.id | addLeadingZeroes }}
-      </button>
+      </a>
     </div>
     <div class="col-sm-12 col-md-10 col-lg-10 col-xl-10">
       <div *ngIf="chapter">
@@ -29,7 +29,7 @@
           >
             <img
               [alt]="'Страница ' + page.name"
-              [src]="prepareUrl(book, page)"
+              [src]="prepareUrl(page)"
               class="img-fluid"
             />
           </div>

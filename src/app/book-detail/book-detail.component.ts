@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BookService } from '../book.service';
-import { IBook } from '../interfaces';
-import { IChapter } from '../interfaces';
+import { IBook, IChapter, IFile } from '../interfaces';
 import { prepareFileUrl } from '../helpers';
 
 @Component({
@@ -11,11 +10,11 @@ import { prepareFileUrl } from '../helpers';
   styleUrls: ['./book-detail.component.css'],
 })
 export class BookDetailComponent implements OnInit {
-  id: number;
+  bookId: number = 1;
+  chapterId: number = 1;
   book: IBook;
   chapter: IChapter;
   contentUrl: string = '/api/books/:id/file/:name/:type';
-  selectedChapter: number = 1;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,11 +23,12 @@ export class BookDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      this.id = +params.get('id');
-      this.booksService.getBook(this.id).subscribe((data: IBook) => {
+      this.bookId = +params.get('id');
+      this.chapterId = +params.get('chapter');
+      this.booksService.getBook(this.bookId).subscribe((data: IBook) => {
         this.book = data;
         const chapter = this.book.chapters.find(
-          item => +item.id === this.selectedChapter
+          item => +item.id === this.chapterId
         );
         if (chapter) {
           this.chapter = chapter;
@@ -37,15 +37,10 @@ export class BookDetailComponent implements OnInit {
     });
   }
 
-  changeChapter(id: number) {
-    this.selectedChapter = id;
-    this.chapter = this.book.chapters.filter(chapter => chapter.id === id)[0];
-  }
-
-  prepareUrl(book: IBook, chapter: IChapter) {
+  prepareUrl(file: IFile) {
     return prepareFileUrl({
-      id: book.id,
-      file: chapter,
+      id: this.bookId,
+      file,
       baseUrl: this.contentUrl,
     });
   }

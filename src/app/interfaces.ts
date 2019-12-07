@@ -1,3 +1,9 @@
+export interface IFileParams {
+  id: number,
+  file: IFile,
+  baseUrl: string,
+}
+
 export interface IPart {
   id: number;
   title: string;

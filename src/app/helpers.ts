@@ -1,7 +1,8 @@
 import { BASE_URL } from './book.service';
+import { IFileParams } from './interfaces';
 
-export const prepareFileUrl = ({ id, file, baseUrl }) => {
-  baseUrl = baseUrl.replace(':id', id);
+export const prepareFileUrl = ({ id, file, baseUrl }: IFileParams) => {
+  baseUrl = baseUrl.replace(':id', String(id));
   baseUrl = baseUrl.replace(':name', file.name);
   baseUrl = baseUrl.replace(':type', file.type);
   return BASE_URL + baseUrl;
