@@ -1,8 +1,21 @@
 <div>
-  <p><b>{{ audioTitle }}:</b></p>
-  <audio controls="controls" #audioPlayer>
+  <div class="mb-2">
+    <b>{{ audioTitle }}:</b>
+  </div>
+  <audio class="mb-1" controls="controls" #audioPlayer>
     <source [src]="filePath" type="audio/mpeg" />
     Тег audio не поддерживается вашим браузером.
     <a [href]="filePath" download>Скачайте музыку.</a>
   </audio>
+  <div>
+    <b *ngIf="audioText"><a href="" (click)="!!toggleText()">Юрӑ сӑмахӗсем:</a></b>
+  </div>
+  <div class="row mb-1" *ngIf="showText">
+    <div class="col" *ngIf="audioText && audioText.cv">
+        <div *ngFor="let str of audioText.cv">{{ str }}</div>
+      </div>
+      <div class="col" *ngIf="audioText && audioText.ru">
+        <div *ngFor="let str of audioText.ru">{{ str }}</div>
+      </div>
+    </div>
 </div>

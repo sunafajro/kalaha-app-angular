@@ -21,19 +21,25 @@
     </div>
     <div class="col-sm-12 col-md-10 col-lg-10 col-xl-10">
       <div *ngIf="chapter">
-        <div *ngIf="chapter.audios && chapter.audios[1]">
-          <app-audio-player
-            [audioTitle]="'Юрӑ'"
-            [filePath]="prepareUrl(chapter.audios[1])"
-          ></app-audio-player>
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6" *ngIf="chapter.audios && chapter.audios[1]">
+              <app-audio-player
+                [audioText]="chapter.audios[1].text"  
+                [audioTitle]="'Юрӑ'"
+                [filePath]="prepareUrl(chapter.audios[1].file)"
+              ></app-audio-player>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6"  *ngIf="chapter.audios && chapter.audios[0]">
+                <app-audio-player
+                  [audioText]="chapter.audios[0].text"
+                  [audioTitle]="'Итлемелли материалсем'"
+                  [filePath]="prepareUrl(chapter.audios[0].file)"
+                ></app-audio-player>
+            </div>
         </div>
-        <div *ngIf="chapter.audios && chapter.audios[0]">
-          <app-audio-player
-            [audioTitle]="'Итлемелли материалсем'"
-            [filePath]="prepareUrl(chapter.audios[0])"
-          ></app-audio-player>
+        <div class="mb-2">
+          <b>Вуламалли материалсем:</b>
         </div>
-        <p><b>Вуламалли материалсем:</b></p>
         <div class="row">
           <div
             class="col-sm-12 col-md-6 col-lg-6 col-xl-6"

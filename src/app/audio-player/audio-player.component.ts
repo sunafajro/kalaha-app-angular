@@ -5,6 +5,7 @@ import {
   OnChanges,
   ViewChild,
 } from '@angular/core';
+import { IAudioText } from '../interfaces';
 
 @Component({
   selector: 'app-audio-player',
@@ -12,8 +13,11 @@ import {
   styleUrls: ['./audio-player.component.css'],
 })
 export class AudioPlayerComponent implements OnChanges {
-  @Input() filePath: string;
+  showText: boolean = false;
+
+  @Input() audioText: IAudioText; 
   @Input() audioTitle: string;
+  @Input() filePath: string;  
   @ViewChild('audioPlayer', { static: false }) audioPlayer: ElementRef;
 
   constructor() {}
@@ -21,6 +25,12 @@ export class AudioPlayerComponent implements OnChanges {
   ngOnChanges() {
     if (this.audioPlayer) {
       this.audioPlayer.nativeElement.load();
+    }
+  }
+
+  toggleText() {
+    if (this.audioText) {
+      this.showText = !this.showText;
     }
   }
 }

@@ -15,6 +15,16 @@ export interface IFile {
   type: string;
 }
 
+export interface IAudioText {
+  cv: string,
+  ru: string,
+}
+
+export interface IAudio {
+  file: IFile,
+  text: IAudioText,
+}
+
 export interface IChapter {
   id: number;
   title: string;
