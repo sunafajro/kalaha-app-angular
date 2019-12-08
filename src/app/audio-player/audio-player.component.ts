@@ -32,5 +32,6 @@ export class AudioPlayerComponent implements OnChanges {
     if (this.audioText) {
       this.showText = !this.showText;
     }
+    return false;
   }
 }

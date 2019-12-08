@@ -29,7 +29,7 @@ export interface IChapter {
   id: number;
   title: string;
   pages: IFile[];
-  audios: IFile[];
+  audios: IAudio[];
 }
 
 export interface IBook {
