@@ -2,8 +2,8 @@
 <html lang="ru">
   <head>
     <meta charset="utf-8" />
-    <title>KalahaBooksAngular</title>
-    <base href="/kalaha-app-angular" />
+    <title>Кала-ха. Учебное пособие.</title>
+    <base href="/kalaha-app-angular/">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="/kalaha-app-angular/favicon.ico" />
     <link
@@ -14,6 +14,17 @@
     />
   <link rel="stylesheet" href="/kalaha-app-angular/styles.3ff695c00d717f2d2a11.css"></head>
   <body>
+    <!-- Github Pages hack to allow SPA refresh without receiving 404. -->
+    <script>
+        (function () {
+          var redirect = sessionStorage.redirect;
+          delete sessionStorage.redirect;
+          if (redirect && redirect != location.href) {
+            history.replaceState(null, null, redirect);
+          }
+        })();
+      </script>
+    <!-- /Github Pages hack. -->
     <app-root></app-root>
     <script src="/kalaha-app-angular/runtime-es2015.edb2fcf2778e7bf1d426.js" type="module"></script>
     <script src="/kalaha-app-angular/runtime-es5.edb2fcf2778e7bf1d426.js" nomodule defer></script>

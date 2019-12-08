@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="utf-8" />
     <title>KalahaBooksAngular</title>
@@ -14,6 +14,17 @@
     />
   </head>
   <body>
+    <!-- Github Pages hack to allow SPA refresh without receiving 404. -->
+    <script>
+        (function () {
+          var redirect = sessionStorage.redirect;
+          delete sessionStorage.redirect;
+          if (redirect && redirect != location.href) {
+            history.replaceState(null, null, redirect);
+          }
+        })();
+      </script>
+    <!-- /Github Pages hack. -->
     <app-root></app-root>
   </body>
 </html>
