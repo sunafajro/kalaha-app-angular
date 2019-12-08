@@ -13,6 +13,7 @@ import {
 })
 export class AudioPlayerComponent implements OnChanges {
   @Input() filePath: string;
+  @Input() audioTitle: string;
   @ViewChild('audioPlayer', { static: false }) audioPlayer: ElementRef;
 
   constructor() {}

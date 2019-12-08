@@ -1,6 +1,8 @@
-<p><b>Итлемелли материалсем:</b></p>
-<audio controls="controls" #audioPlayer>
-  <source [src]="filePath" type="audio/mpeg" />
-  Тег audio не поддерживается вашим браузером.
-  <a [href]="filePath" download>Скачайте музыку.</a>
-</audio>
+<div>
+  <p><b>{{ audioTitle }}:</b></p>
+  <audio controls="controls" #audioPlayer>
+    <source [src]="filePath" type="audio/mpeg" />
+    Тег audio не поддерживается вашим браузером.
+    <a [href]="filePath" download>Скачайте музыку.</a>
+  </audio>
+</div>

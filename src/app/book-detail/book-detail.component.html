@@ -21,8 +21,15 @@
     </div>
     <div class="col-sm-12 col-md-10 col-lg-10 col-xl-10">
       <div *ngIf="chapter">
-        <div *ngIf="chapter.audios && chapter.audios.length">
+        <div *ngIf="chapter.audios && chapter.audios[1]">
           <app-audio-player
+            [audioTitle]="'Юрӑ'"
+            [filePath]="prepareUrl(chapter.audios[1])"
+          ></app-audio-player>
+        </div>
+        <div *ngIf="chapter.audios && chapter.audios[0]">
+          <app-audio-player
+            [audioTitle]="'Итлемелли материалсем'"
             [filePath]="prepareUrl(chapter.audios[0])"
           ></app-audio-player>
         </div>
