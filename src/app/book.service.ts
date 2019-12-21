@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IBook } from './interfaces';
 
-export const BASE_URL: string = '//backend.кала-ха.рф';
+export const BASE_URL: string = '//api.кала-ха.рф';
 
 @Injectable({
   providedIn: 'root',
