@@ -18,7 +18,7 @@ export class AudioPlayerComponent implements OnChanges {
   @Input() audioText: IAudioText; 
   @Input() audioTitle: string;
   @Input() filePath: string;  
-  @ViewChild('audioPlayer', { static: false }) audioPlayer: ElementRef;
+  @ViewChild('audioPlayer') audioPlayer: ElementRef;
 
   constructor() {}
 
