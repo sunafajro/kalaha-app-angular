@@ -1,0 +1,46 @@
+<div class="mb-1">
+  <div class="form-row">
+    <div class="col-auto">
+      <input
+        class="form-control form-control-sm mr-1 mb-1"
+        type="text"
+        (input)="onInputTerm($event.target.value)"
+        (keyup.enter)="onSearchSubmit()"
+      />
+    </div>
+    <div class="col-auto">
+      <button class="btn btn-primary btn-sm" (click)="onSearchSubmit()">
+        Искать
+      </button>
+    </div>
+  </div>
+  <div class="row" *ngIf="count !== null">
+    <div class="col-2">
+      <button
+        class="btn btn-info mr-1 btn-sm"
+        (click)="goToPreviousPage()"
+        *ngIf="offset > 0"
+      >
+        <
+      </button>
+    </div>
+    <div class="col-8 pt-2 text-center small">
+        <span *ngIf="count === 0">Нет результатов...</span>
+        <span *ngIf="count > 0">{{ offset + 1 }} - {{ offset + limit > count ? count : offset + limit }} / {{ count }}</span>
+    </div>
+    <div class="col-2 text-right">
+      <button
+        class="btn btn-info btn-sm"
+        (click)="goToNextPage()"
+        *ngIf="limit + offset < count"
+      >
+        >
+      </button>
+    </div>
+  </div>
+  <div class="mt-1 mb-1 pt-1" *ngIf="terms.length">
+    <div class="mb-1 small" *ngFor="let term of terms">
+      <b>{{ term.cv }}:</b> {{ term.ru }}
+    </div>
+  </div>
+</div>

@@ -40,3 +40,15 @@ export interface IBook {
   parts: IPart;
   chapters: IChapter[];
 }
+
+export interface ITerm {
+  cv: string;
+  ru: string;
+  chapter: string;
+  book: string;
+}
+
+export interface ITerms {
+  terms: ITerm[];
+  total: number;
+}
