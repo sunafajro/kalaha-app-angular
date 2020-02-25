@@ -11,9 +11,9 @@ const DEFAULT_OFFSET : number = 0;
   styleUrls: ['./dictionary.component.css'],
 })
 export class DictionaryComponent {
-    terms: ITerm[];
+    terms: ITerm[] = [];
     count: number|null = null;
-    searchTerm: string;
+    searchTerm: string = '';
     offset: number = DEFAULT_OFFSET;
     limit: number = DEFAULT_LIMIT;
 

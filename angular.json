@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "kalaha-books-angular"
+    }
+  },
+  "defaultProject": "kalaha-books-angular",
+  "cli": {
+    "analytics": "676a2e97-6526-48e1-8745-93ad160e76e3"
+  }
 }
